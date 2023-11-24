@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <title>DataLens - Results</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Data Quality Report</h2>
+        </div>
+        <p><b>Duplicate Rows:</b> {{ duplicates }}</p>
+        {% for table in tables %}
+            <div class="table-section">
+                <h3>{{ titles[loop.index] }}</h3>
+                {{ table|safe }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
